@@ -4,13 +4,16 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gallery/demo/shrine/backdrop.dart';
-import 'package:flutter_gallery/demo/shrine/category_menu_page.dart';
-import 'package:flutter_gallery/demo/shrine/colors.dart';
-import 'package:flutter_gallery/demo/shrine/expanding_bottom_sheet.dart';
-import 'package:flutter_gallery/demo/shrine/home.dart';
-import 'package:flutter_gallery/demo/shrine/login.dart';
-import 'package:flutter_gallery/demo/shrine/supplemental/cut_corners_border.dart';
+import 'package:flutter_shrine/backdrop.dart';
+import 'package:flutter_shrine/category_menu_page.dart';
+import 'package:flutter_shrine/colors.dart';
+import 'package:flutter_shrine/expanding_bottom_sheet.dart';
+import 'package:flutter_shrine/home.dart';
+import 'package:flutter_shrine/login.dart';
+import 'package:flutter_shrine/supplemental/cut_corners_border.dart';
+import 'package:flutter_shrine/model/app_state_model.dart';
+
+import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
   @override
@@ -21,6 +24,7 @@ class _ShrineAppState extends State<ShrineApp> with SingleTickerProviderStateMix
   // Controller to coordinate both the opening/closing of backdrop and sliding
   // of expanding bottom sheet
   AnimationController _controller;
+  AppStateModel model;
 
   @override
   void initState() {
@@ -30,27 +34,31 @@ class _ShrineAppState extends State<ShrineApp> with SingleTickerProviderStateMix
       duration: const Duration(milliseconds: 450),
       value: 1.0,
     );
+    model = AppStateModel()..loadProducts();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Shrine',
-      home: HomePage(
-        backdrop: Backdrop(
-          frontLayer: const ProductPage(),
-          backLayer: CategoryMenuPage(onCategoryTap: () => _controller.forward()),
-          frontTitle: const Text('SHRINE'),
-          backTitle: const Text('MENU'),
-          controller: _controller,
+    return ScopedModel<AppStateModel>(
+      model: model,
+      child: MaterialApp(
+        title: 'Shrine',
+        home: HomePage(
+          backdrop: Backdrop(
+            frontLayer: const ProductPage(),
+            backLayer: CategoryMenuPage(onCategoryTap: () => _controller.forward()),
+            frontTitle: const Text('SHRInE'),
+            backTitle: const Text('MENU'),
+            controller: _controller,
+          ),
+          expandingBottomSheet: ExpandingBottomSheet(hideController: _controller),
         ),
-        expandingBottomSheet: ExpandingBottomSheet(hideController: _controller),
+        initialRoute: '/login',
+        onGenerateRoute: _getRoute,
+        // Copy the platform from the main theme in order to support platform
+        // toggling from the Gallery options menu.
+        theme: _kShrineTheme.copyWith(platform: Theme.of(context).platform),
       ),
-      initialRoute: '/login',
-      onGenerateRoute: _getRoute,
-      // Copy the platform from the main theme in order to support platform
-      // toggling from the Gallery options menu.
-      theme: _kShrineTheme.copyWith(platform: Theme.of(context).platform),
     );
   }
 }
@@ -99,10 +107,10 @@ ThemeData _buildShrineTheme() {
 
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base.copyWith(
-    headline5: base.headline5.copyWith(fontWeight: FontWeight.w500),
-    headline6: base.headline6.copyWith(fontSize: 18.0),
+    headline: base.headline.copyWith(fontWeight: FontWeight.w500),
+    //headline6: base.headline6.copyWith(fontSize: 18.0),
     caption: base.caption.copyWith(fontWeight: FontWeight.w400, fontSize: 14.0),
-    bodyText1: base.bodyText1.copyWith(fontWeight: FontWeight.w500, fontSize: 16.0),
+    body1: base.body1.copyWith(fontWeight: FontWeight.w500, fontSize: 16.0),
     button: base.button.copyWith(fontWeight: FontWeight.w500, fontSize: 14.0),
   ).apply(
     fontFamily: 'Raleway',

@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:flutter_gallery/demo/shrine/colors.dart';
-import 'package:flutter_gallery/demo/shrine/model/app_state_model.dart';
-import 'package:flutter_gallery/demo/shrine/model/product.dart';
+import 'package:flutter_shrine/colors.dart';
+import 'package:flutter_shrine/model/app_state_model.dart';
+import 'package:flutter_shrine/model/product.dart';
 
 class CategoryMenuPage extends StatelessWidget {
   const CategoryMenuPage({
@@ -35,7 +35,7 @@ class CategoryMenuPage extends StatelessWidget {
                     const SizedBox(height: 16.0),
                     Text(
                       categoryString,
-                      style: theme.textTheme.bodyText1,
+                      style: theme.textTheme.body1,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 14.0),
@@ -50,7 +50,7 @@ class CategoryMenuPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
                     categoryString,
-                    style: theme.textTheme.bodyText1.copyWith(
+                    style: theme.textTheme.body1.copyWith(
                       color: kShrineBrown900.withAlpha(153)
                     ),
                     textAlign: TextAlign.center,

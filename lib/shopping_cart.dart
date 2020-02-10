@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:flutter_gallery/demo/shrine/colors.dart';
-import 'package:flutter_gallery/demo/shrine/expanding_bottom_sheet.dart';
-import 'package:flutter_gallery/demo/shrine/model/app_state_model.dart';
-import 'package:flutter_gallery/demo/shrine/model/product.dart';
+import 'package:flutter_shrine/colors.dart';
+import 'package:flutter_shrine/expanding_bottom_sheet.dart';
+import 'package:flutter_shrine/model/app_state_model.dart';
+import 'package:flutter_shrine/model/product.dart';
 
 const double _leftColumnWidth = 60.0;
 
@@ -57,7 +57,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           ),
                           Text(
                             'CART',
-                            style: localTheme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
+                            style: localTheme.textTheme.subtitle.copyWith(fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 16.0),
                           Text('${model.totalCartQuantity} ITEMS'),
@@ -108,8 +108,8 @@ class ShoppingCartSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle smallAmountStyle = Theme.of(context).textTheme.bodyText2.copyWith(color: kShrineBrown600);
-    final TextStyle largeAmountStyle = Theme.of(context).textTheme.headline4;
+    final TextStyle smallAmountStyle = Theme.of(context).textTheme.body2.copyWith(color: kShrineBrown600);
+    final TextStyle largeAmountStyle = Theme.of(context).textTheme.headline;
     final NumberFormat formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),
@@ -242,7 +242,7 @@ class ShoppingCartRow extends StatelessWidget {
                             ),
                             Text(
                               product.name,
-                              style: localTheme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
+                              style: localTheme.textTheme.subtitle.copyWith(fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),

@@ -5,11 +5,11 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:flutter_gallery/demo/shrine/backdrop.dart';
-import 'package:flutter_gallery/demo/shrine/expanding_bottom_sheet.dart';
-import 'package:flutter_gallery/demo/shrine/model/app_state_model.dart';
-import 'package:flutter_gallery/demo/shrine/model/product.dart';
-import 'package:flutter_gallery/demo/shrine/supplemental/asymmetric_view.dart';
+import 'package:flutter_shrine/backdrop.dart';
+import 'package:flutter_shrine/expanding_bottom_sheet.dart';
+import 'package:flutter_shrine/model/app_state_model.dart';
+import 'package:flutter_shrine/model/product.dart';
+import 'package:flutter_shrine/supplemental/asymmetric_view.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({this.category = Category.all});

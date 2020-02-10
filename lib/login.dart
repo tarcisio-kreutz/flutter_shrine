@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gallery/demo/shrine/colors.dart';
+import 'package:flutter_shrine/colors.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16.0),
                 Text(
                   'SHRINE',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headline,
                 ),
               ],
             ),
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextField(
                   controller: _usernameController,
                   decoration: const InputDecoration(
-                    labelText: 'Username',
+                    labelText: 'User Name',
                   ),
                 ),
               ),
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     RaisedButton(
-                      child: const Text('NEXT'),
+                      child: const Text('NExT'),
                       elevation: 8.0,
                       shape: const BeveledRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),

@@ -9,14 +9,20 @@ cd ../../flutter_shrine
  git init  
  {edit/bring in .gitignore, LICENSE, README.md}  
  git add .gitignore LICENSE README.md  
- git add lib/\*  
+ git add lib/\\*  
 git commit -m "https://github.com/flutter/flutter.git : examples/flutter_gallery/lib/demo/shrine"  
 git remote add origin https://github.com/tarcisio-kreutz/flutter_shrine.git  
 git remote -v  
 git push -u origin master  
 
-
-
+===============  
+== flutter_shrine edits to enable it for running alone  
+flutter create .  
+{update pubspec.yaml}  
+{open flutter_shrine in Android Studio}  
+{fix the broken package references}  
+{create main.dart}
+{fix model-related initializations}
 
 
 

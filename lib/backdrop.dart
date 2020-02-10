@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'package:flutter_gallery/demo/shrine/login.dart';
+import 'package:flutter_shrine/login.dart';
 
 const Cubic _kAccelerateCurve = Cubic(0.548, 0.0, 0.757, 0.464);
 const Cubic _kDecelerateCurve = Cubic(0.23, 0.94, 0.41, 1.0);
@@ -131,7 +131,7 @@ class _BackdropTitle extends AnimatedWidget {
     );
 
     return DefaultTextStyle(
-      style: Theme.of(context).primaryTextTheme.headline6,
+      style: Theme.of(context).primaryTextTheme.headline,
       softWrap: false,
       overflow: TextOverflow.ellipsis,
       child: Row(children: <Widget>[
