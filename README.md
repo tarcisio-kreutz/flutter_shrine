@@ -24,6 +24,19 @@ flutter create .
 {create main.dart}
 {fix model-related initializations}
 
+===============  
+== What about Web support?  
+== https://stackoverflow.com/questions/56332913/is-it-possible-to-use-android-studio-to-build-a-website-in-flutter  
+cd flutter_shrine  
+flutter upgrade --force  
+flutter channel beta  
+flutter upgrade  
+flutter config --enable-web  
+flutter create .  
+flutter devices  
+flutter run -d chrome  
+
+===============  
 
 
 
